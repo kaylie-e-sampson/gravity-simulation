@@ -6,10 +6,11 @@ public class GravitationalObj : MonoBehaviour
 {
     public Rigidbody rb;
 
-    public float velocityX;
-    public float velocityY;
-
     const float G = 667.4f;
+
+    // scales for distances and velocities
+    public float scaleDistance = 1000f;
+    public float scaleVelocity = 0.1f;
 
     // list of all objects in the scene
     public static List<GravitationalObj> Objs;
@@ -22,7 +23,7 @@ public class GravitationalObj : MonoBehaviour
             if (obj != this)
             {
                 Attract(obj);
-            }   
+            }
         };
     }
 
@@ -32,7 +33,7 @@ public class GravitationalObj : MonoBehaviour
         {
             Objs = new List<GravitationalObj>();
         }
-        Objs.Add(this);
+        Objs.Insert(0, this); // Insert the moon object at the beginning of the list
     }
 
     void OnDisable()
@@ -55,10 +56,24 @@ public class GravitationalObj : MonoBehaviour
             return;
         }
 
-        // using newton's law to calculate the force on the object
-        float forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
-        Vector3 force = direction.normalized * forceMagnitude;
+        // scale the distance and velocity
+        float scaledDistance = distance / scaleDistance;
+        Vector3 scaledDirection = direction.normalized * scaledDistance;
+
+        // Using Newton's law to calculate the force on the object
+        float forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow(scaledDistance, 2);
+        Vector3 force = scaledDirection.normalized * forceMagnitude;
 
         rbToAttract.AddForce(force);
+
+        // Calculate the velocity required for orbital motion
+        Vector3 velocity = new Vector3(0f, 0f, 0f); // Earth's velocity remains 0
+        if (gameObject.name == "Moon")
+        {
+            velocity.x = 0.1008f * scaleVelocity; // Set the Moon's scaled velocity
+            velocity.y = 0.1008f * scaleVelocity;
+        }
+        velocity += force / rbToAttract.mass * Time.fixedDeltaTime;
+        rbToAttract.velocity = velocity;
     }
 }
