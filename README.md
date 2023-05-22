@@ -3,7 +3,7 @@
 This project was created to experiment with gravity in outer space. First, I played around with simulating gravity by disabiling the "Use Gravity" Unity preset and applying my own gravity calculations based on Newtown's Laws of Physics. I was inspired by this video demonstrating how to [Simulate Gravity in Unity](https://www.youtube.com/watch?v=Ouu3D_VHx9o). From there, I worked independently to simulate the moon orbiting the earth (inspired by a CS1 lab, which was used as reference)!
 
 <img width="748" alt="Screenshot 2023-05-22 at 4 37 46 AM" src="https://github.com/kaylie-e-sampson/gravity-simulation/assets/67167039/e9d9144a-d015-4bbb-9046-d928b3e05518">
-<img width="748" alt="Screenshot 2023-05-22 at 4 37 46 AM" src="https://github.com/kaylie-e-sampson/gravity-simulation/assets/67167039/e58379ef-9cf1-47a3-a965-9415347824b9">
+<img width="748" alt="Screenshot 2023-05-22 at 4 53 43 AM" src="https://github.com/kaylie-e-sampson/gravity-simulation/assets/67167039/8a4dbe64-b394-4789-9d5f-b5250680ed2a">
 
 ## Architecture
 ### Tech Stack 🥞
