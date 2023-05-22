@@ -1,4 +1,4 @@
-# Earth & Moon Gravity Simulation
+# 🌎 Earth & Moon Gravity Simulation
 
 This project was created to experiment with gravity in outer space. First, I played around with simulating gravity by disabiling the "Use Gravity" Unity preset and applying my own gravity calculations based on Newtown's Laws of Physics. I was inspired by this video demonstrating how to [Simulate Gravity in Unity](https://www.youtube.com/watch?v=Ouu3D_VHx9o). From there, I worked independently to simulate the moon orbiting the earth (inspired by a CS1 lab, which was used as reference)!
 
